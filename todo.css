@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/8727c9b1-be21-4932-a221-4257b59a74dd);
+  background-repeat: repeat;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: slidein 120s forwards infinite alternate;
+  color: #ffffff7d;
+}
+@keyframes slidein {
+  0%,
+  100% {
+    background-position: 20% 0%;
+    background-size: 3400px;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 2400px;
+  }
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#numberDisplay {
+  margin-top: 20px;
+  font-size: 24px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+/* Stile per i pulsanti */
+button {
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 6px 10px; /* Spaziatura interna */
+  font-size: 0.8em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+}
+
+button:hover {
+  background-color: #380126; /* Colore di sfondo quando il mouse è sopra il pulsante */
+  transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+  color: #ffffffbb;
+  border-color: #fff;
+  border-style: groove;
+}

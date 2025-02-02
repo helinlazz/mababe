@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600&display=swap');
+
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body e layout principale */
+body {
+  background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/8727c9b1-be21-4932-a221-4257b59a74dd);
+  background-repeat: repeat;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: slidein 120s forwards infinite alternate;
+  color: #ffffffbb;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+}
+@keyframes slidein {
+  0%,
+  100% {
+    background-position: 20% 0%;
+    background-size: 3400px;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 2400px;
+  }
+}
+
+/* Contenitore header */
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+  text-align: center;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+#auguri {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffffbb;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  max-width: 90%;
+  text-align: center;
+  overflow-wrap: break-word;
+  display: inline-block;
+}
+
+#ricordato {
+  color: #ffffffbb;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+#counter {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: logoGrow 3s ease-out forwards, logoShrink 3s 3s forwards;
+}
+
+/* Stile del logo "Our Story" */
+#logo {
+  font-size: 4rem; /* Dimensione del testo */
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase; /* Tutte le lettere in maiuscolo */
+  color: #ffffffbb; /* Colore del logo (bianco) */
+  opacity: 1; /* Logo visibile all'inizio */
+  cursor: pointer; /* Logo cliccabile */
+  transition: font-size 0.3s ease; /* Effetto di transizione per un logo reattivo */
+}
+
+/* Animazione per ingrandire il logo */
+@keyframes logoGrow {
+  0% {
+    transform: scale(1); /* Logo parte dalla dimensione normale */
+  }
+  50% {
+    transform: scale(1.5); /* Logo cresce leggermente */
+  }
+  100% {
+    transform: scale(1.5); /* Logo continua a crescere */
+  }
+}
+
+/* Animazione per ridurre e spostare il logo in alto a sinistra */
+@keyframes logoShrink {
+  0% {
+    transform: scale(1.5); /* Inizia dalla posizione centrale, ma ingrandito */
+  }
+  100% {
+    transform: translate(-35%, -45%) scale(0.5); /* Sposta il logo in alto a sinistra e lo riduce */
+    opacity: 1; /* Logo visibile alla fine */
+  }
+}
+
+/* Contenuto principale della homepage, inizialmente nascosto */
+#main-content {
+  display: none; /* Nascosto finché l'animazione non è completa */
+  opacity: 0; /* Impostiamo l'opacità iniziale a 0 */
+}
+
+/* Quando l'animazione del logo è terminata, mostriamo il contenuto */
+#main-content.visible {
+  display: block; /* Mostra il contenuto */
+  animation: fadeIn 2s ease-out forwards; /* Animazione di comparsa */
+}
+
+/* Animazione per la comparsa del contenuto */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animazione ECG */
+#ecg-container {
+  display: flex;
+  justify-content: center; /* Centra l'ECG orizzontalmente */
+  align-items: center; /* Centra l'ECG verticalmente */
+  height: 100%; /* Imposta l'altezza al 100% per centrare verticalmente */
+  margin-top: 20px;
+}
+
+#ecg {
+  width: 108px;
+  height: 128px;
+  display: block;
+}
+
+svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.beat-loader {
+  stroke: #380126;
+  stroke-width: 2;
+  stroke-dasharray: 175;
+  stroke-dashoffset: 350;
+  animation: draw 1.4s linear infinite;
+}
+
+/* Animazione di disegno del battito */
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 350;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Pulsanti nella homepage */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px; /* Distanza dal contenuto precedente */
+  flex-wrap: wrap; /* Permette ai pulsanti di andare su una nuova riga su schermi più piccoli */
+}
+
+/* Stile per i pulsanti */
+button {
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 10px 30px; /* Spaziatura interna */
+  font-size: 1.2em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+}
+
+/* Effetto hover per i pulsanti */
+button:hover {
+  background-color: #380126; /* Colore di sfondo quando il mouse è sopra il pulsante */
+  transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+  color: #ffffffbb;
+  border-color: #ffffffbb;
+}
+
+/* Media Query per schermi più piccoli */
+@media (max-width: 768px) {
+  #logo {
+    font-size: 3rem;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  /* Container per ECG */
+  #ecg-container {
+    display: flex;
+    justify-content: center; /* Centra l'elemento orizzontalmente */
+    align-items: center; /* Centra l'elemento verticalmente */
+    width: 100%; /* Si espande per occupare tutta la larghezza disponibile */
+    margin-top: 30px; /* Distanza dal contenuto precedente */
+    height: auto;
+  }
+
+  /* ECG SVG */
+  #ecg {
+    width: 100%; /* Fa sì che l'SVG occupi tutta la larghezza del container */
+    height: auto; /* Mantiene le proporzioni */
+  }
+
+  /* Media Query per schermi piccoli (sotto 760px) */
+  @media (max-width: 760px) {
+    #ecg-container {
+      width: 100%; /* Il container occupa tutta la larghezza disponibile */
+      padding: 0 10px; /* Aggiungi un po' di padding se necessario */
+    }
+
+    #ecg {
+      max-width: 100%; /* Limita la larghezza massima dell'SVG al 100% del container */
+      max-height: 150px; /* Puoi regolare questa altezza per mantenere l'aspetto giusto */
+      width: auto; /* Mantieni la proporzione dell'SVG */
+    }
+  }
+
+  svg {
+    width: 100%; /* Rende l'SVG completamente reattivo */
+    height: auto; /* Mantiene la proporzione originale dell'SVG */
+  }
+}
+
+/* Countdown */
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.countdown-item {
+  color: #ffffffbb;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 30px;
+  margin: 10px;
+  padding-top: 10px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.countdown-item span {
+  color: #ffffffbb;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#countdown-container h1 {
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #ffffffbb;
+}

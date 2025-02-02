@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/8727c9b1-be21-4932-a221-4257b59a74dd);
+  background-repeat: no-repeat;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: slidein 120s forwards infinite alternate;
+}
+
+.song-info {
+  color: #ffffffaf;
+}
+@keyframes slidein {
+  0%,
+  100% {
+    background-position: 20% 0%;
+    background-size: 3400px;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 2400px;
+  }
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffffaf;
+  width: 380px;
+  padding: 10px 30px;
+  border-radius: 20px;
+}
+
+.player {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ffffffaf;
+  background: transparent;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff0e;
+}
+
+.album-cover {
+  margin-bottom: 20px;
+}
+
+.album-cover img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.song-info {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  background: rgba(163, 162, 164, 0.4);
+  border-radius: 4px;
+  margin: 32px 0 24px;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(163, 162, 164, 0.9);
+  width: 16px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  outline: 4px solid #ffffffaf;
+  box-shadow: 0 6px 10px rgba(5, 36, 28, 0.3);
+}
+
+.control-btn,
+.play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  aspect-ratio: 1/1;
+  margin: 20px;
+  background: rgba(163, 162, 164, 0.3);
+  color: #ffffffaf;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  outline: 0;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 20px rgba(5, 36, 28, 0.3);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.control-btn:is(:hover, :focus-visible),
+.play-btn:is(:hover, :focus-visible) {
+  transform: scale(0.96);
+}
+
+.control-btn:nth-child(2) {
+  transform: scale(1.3);
+}
+
+.control-btn:nth-child(2):is(:hover, :focus-visible) {
+  transform: scale(1.25);
+}
+
+.play-btn i {
+  font-size: 2rem;
+}
+
+input[type='range'] {
+  width: 80%;
+  margin: 10px 0;
+  background: #444;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type='range']:focus {
+  background: #333;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  background: #ffffffaf;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/* Volume control */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.volume-bar {
+  width: 60%;
+}
+
+#volume-btn {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ffffffaf;
+}
+
+.tornahomepage {
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 6px 10px; /* Spaziatura interna */
+  font-size: 0.8em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+}
+
+.tornahomepage:hover {
+  background-color: #380126; /* Colore di sfondo quando il mouse è sopra il pulsante */
+  transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+  color: #ffffffbb;
+  border-color: #fff;
+  border-style: groove;
+}

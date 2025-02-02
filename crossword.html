@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruciverba</title>
+    <link rel="stylesheet" href="crossword.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+
+<div class="container crosswordDisplay">
+    <div class="row">
+        <!-- Bottoni Create e Play disabilitati -->
+        <button id="btnCreate" disabled>Create</button>
+        <button id="btnPlay" disabled>Play</button>
+        <button id="btnReset">Reset</button>
+        <button id="btnCheck">Check Answers</button>
+    </div>
+
+    <!-- Area in cui verrà disegnato il cruciverba -->
+    <div id="crossword"></div>
+    <button id="btnGen">Generate</button>
+
+    <div class="col-lg-6">
+        <div id="cluesAcross">
+            <div id="directionAcross">Orizzontale</div>
+            <div class="line">
+                <input class="word" type="text" value="Helin" />
+                <span class="lineNum"></span>
+                <input class="clue" value="È la più forte su Fortnite" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="michelle" />
+                <span class="lineNum"></span>
+                <input class="clue" value="È la mia metà" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Villeneuve" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Famoso regista canadese dal nome buffo" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Tami" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Nome di cane tendenzialmente crespo" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Dicembre" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Il nostro mese" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Neiroztv" />
+                <span class="lineNum"></span>
+                <input class="clue" value="La migliore streamer dopo Blur" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Porno" />
+                <span class="lineNum"></span>
+                <input class="clue"
+                    value="Imprecazione sostituibile a qualsiasi parolaccia per allentare la tensione" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Gojo" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Personaggio anime 'cReAtO sOlO pEr PiAcErE'(ha preso la skin su fortnite)" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Fabboz" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Moderatore, sinonimo di qualsiasi insulto" />
+            </div>
+            <div class="line">
+                <input class="word" type="text" value="Nudini" />
+                <span class="lineNum"></span>
+                <input class="clue" value="Foto graditissime te lo giuro" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div id="cluesDown">
+            <div id="directionDown">Verticale</div>
+        </div>
+    </div>
+
+    <!-- Bottone per tornare alla pagina principale -->
+    <button id="tornahomepage" onclick="goToHomePage()">Torna alla pagina principale</button>
+</div>
+
+<!-- Elementi per il messaggio (modal) e overlay -->
+<div id="overlay"></div>
+<div id="messageBox">
+    <span id="messageText"></span>
+    <button id="closeMessage">Chiudi</button>
+</div>
+
+
+
+<script src="crossword.js"></script>
+
+
+
+</html>

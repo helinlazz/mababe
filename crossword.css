@@ -1,0 +1,316 @@
+body {
+  font-family: 'Roboto', sans-serif; /* Font moderno e minimalista */
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px; /* Distanza dal testo "Auguri" */
+  background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/8727c9b1-be21-4932-a221-4257b59a74dd);
+  background-repeat: repeat;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: slidein 120s forwards infinite alternate;
+}
+
+@keyframes slidein {
+  0%,
+  100% {
+    background-position: 20% 0%;
+    background-size: 3400px;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 2400px;
+  }
+}
+
+.container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.crosswordDisplay {
+  top: 0rem;
+}
+
+.clueBlock {
+  position: relative;
+  margin-bottom: 5em;
+}
+.clueDirection {
+  text-align: left;
+  margin: 1em 0 0.25em 122px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+.word,
+.clue,
+.lineNum {
+  display: inline-block;
+  height: 1.4em;
+  padding: 0 5px;
+}
+.word {
+  text-align: right;
+  width: 100px;
+  margin: 0 20px 0 0;
+}
+.clue {
+  width: 500px;
+  margin: 0 0 4px 0;
+}
+.lineNum {
+  line-height: 1.8em;
+}
+.clueReadOnly {
+  border-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  outline: 0;
+  color: #303030;
+  background: none;
+}
+
+.crossword {
+  display: block;
+  border: 2px solid #ffffffbb;
+  border-radius: 10px;
+}
+.square {
+  margin: 0 1px 1px 0;
+  display: inline-block;
+  position: relative;
+  font: 24px Calibri;
+  width: 1.25em;
+  height: 1.25em;
+  line-height: 1.25em;
+  vertical-align: top;
+}
+.char:focus {
+  -webkit-box-shadow: 0 0 0 2px rgb(0, 133, 180);
+  -moz-box-shadow: 0 0 0 2px rgb(0, 133, 180);
+  box-shadow: inset 0 0 0 2px rgb(0, 133, 180);
+}
+.char {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  margin: 1px 0 0 -1px;
+  width: 1.25em;
+  height: 1.25em;
+  text-align: center;
+  background-color: rgb(200, 200, 200);
+}
+.charReadOnly:focus {
+  -webkit-box-shadow: 0 !important;
+  -moz-box-shadow: 0 !important;
+  box-shadow: 0 !important;
+  border-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  outline: 0;
+  color: #303030;
+}
+
+#btnCreate,
+#btnPlay {
+  display: none;
+}
+
+.num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-size: 0.5em;
+  line-height: 1em;
+  pointer-events: none;
+}
+
+.hide {
+  visibility: hidden;
+}
+.disabled {
+  display: none !important;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(150, 150, 150);
+}
+
+#btnCheck {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 6px 10px; /* Spaziatura interna */
+  font-size: 0.8em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+}
+
+#btnReset {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 6px 10px; /* Spaziatura interna */
+  font-size: 0.8em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+}
+#btnCheck:hover,
+#btnReset:hover {
+  background-color: #380126; /* Colore di sfondo quando il mouse è sopra il pulsante */
+  transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+  color: #ffffffbb;
+  border-color: #fff;
+  border-style: groove;
+}
+
+#messageBox {
+  background-color: #f0f0f01b;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+
+#messageBox.show {
+  display: block;
+}
+
+#closeMessage {
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#tornahomepage {
+  background-color: #ffffffbb; /* Sfondo bianco per i pulsanti */
+  color: #380126; /* Testo nero per contrastare lo sfondo bianco */
+  font-weight: 200;
+  padding: 6px 10px; /* Spaziatura interna */
+  font-size: 0.8em; /* Dimensione del testo */
+  border: 1px solid transparent; /* Rimuove il bordo predefinito */
+  border-radius: 30px; /* Pulsanti arrotondati */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  text-transform: uppercase; /* Testo maiuscolo */
+  width: 200px; /* Larghezza fissa per tutti i pulsanti */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effetto al passaggio del mouse */
+  position: absolute; /* Posizione fissa */
+  align-self: center;
+}
+
+#tornahomepage:hover {
+  background-color: #380126; /* Colore di sfondo quando il mouse è sopra il pulsante */
+  transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+  color: #ffffffbb;
+  border-color: #fff;
+  border-style: groove;
+}
+
+/* Overlay che oscura lo sfondo */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none; /* inizialmente nascosto */
+}
+
+/* Finestra del messaggio (modal) centrata */
+#messageBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #380126;
+  color: #ffffffbb;
+  border: 2px solid #ffffffbb;
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-width: 90%;
+  text-align: center;
+  /* Uso di flex per centrare anche il contenuto interno, se necessario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none; /* inizialmente nascosto */
+}
+
+/* Stile per il testo del messaggio */
+#messageBox #messageText {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Pulsante per chiudere il modal */
+#messageBox #closeMessage {
+  background-color: #ffffffbb;
+  border: none;
+  color: #380126;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  border: 1px solid #380126;
+}
+
+#messageBox #closeMessage:hover {
+  background-color: #380126a6;
+  color: #ffffffbb;
+  border: 1px solid #ffffffbb;
+}
+
+/* Classe per mostrare gli elementi */
+.show {
+  /* Per il modal utilizziamo 'flex' per ripristinare la struttura definita sopra */
+  display: flex !important;
+}
+
+.col-lg-6 {
+  color: #ffffffbb;
+}
+
+.clue {
+  color: #ffffff7d;
+}
+.clueDirection {
+  color: #ffffff7d;
+}
